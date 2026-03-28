@@ -19,6 +19,12 @@ pipeline {
                 sh 'docker build -t user-service .'
             }
         }
+        
+        stage('Clean') {
+    		steps {
+        		deleteDir()
+    		}
+		}
 
     }
 }
