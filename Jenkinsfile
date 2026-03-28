@@ -2,13 +2,14 @@ pipeline {
     agent any
 
     stages {
+		
+		stage('Clean') {
+            steps {
+                deleteDir()
+            }
+        }
 
         stage('Build with Maven') {
-            agent {
-                docker {
-                    image 'maven:3.9.9-eclipse-temurin-17'
-                }
-            }
             steps {
                 sh 'mvn clean package'
             }
@@ -19,12 +20,6 @@ pipeline {
                 sh 'docker build -t user-service .'
             }
         }
-        
-        stage('Clean') {
-    		steps {
-        		deleteDir()
-    		}
-		}
 
     }
 }
