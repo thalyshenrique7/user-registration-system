@@ -37,6 +37,6 @@ public class UserProducer {
 
 		this.rabbitTemplate.convertAndSend(exchange, routingKey, userCreatedEvent);
 
-		LOGGER.info("Event published: order.created | userId={}", userId);
+		LOGGER.info("Event published: user.created | userId={}", userId);
 	}
 }
