@@ -88,6 +88,28 @@ docker compose up --build
 
 ---
 
+## Jenkins Setup
+
+After starting the containers, it is necessary to install Maven inside the Jenkins container.
+
+### Access Jenkins container
+
+```bash
+docker exec -it jenkins bin/sh
+```
+
+### Install Maven
+
+```bash
+apt update
+apt install -y maven
+exit
+```
+
+This step ensures that Jenkins can build the project during the CI/CD pipeline execution.
+
+---
+
 ## Services
 
 | Service        | URL                              |
